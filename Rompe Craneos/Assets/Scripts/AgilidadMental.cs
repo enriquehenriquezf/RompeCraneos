@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AgilidadMental : MonoBehaviour {
-	//private string[][] ecuaciones = {{"3+2=5","true"},{"7*8=57","false"}};
+	private string nombre = "";
+	private bool correcta = false;
 	float time = 0f;
 	float delta = 0f;
+	float vel = 4f;
+	bool verificando = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +16,41 @@ public class AgilidadMental : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		this.transform.Translate (0f,-vel,0f);
+		delta += Time.deltaTime;
+		if(delta > 1f)
+		{
+			time += 1;
+			delta = 0;
+		}
+		if (time == 5 && !verificando) {
+			if (correcta) {
+				Camera.main.GetComponent<LivingEntityAM> ().AddPuntos (-1);
+			}
+			Destroy (this.gameObject);
+		}
+	}
+
+	public void SetName(string n){
+		nombre = n;
+	}
+	public void SetCorrecta(bool c){
+		correcta = c;
+	}
+	public void SetVelocidad(int v){
+		vel = v;
+	}
+	public bool GetCorrecta(){
+		return correcta;
+	}
+
+	public void Verificar(){
+		verificando = true;
+		if (GetCorrecta ()) {
+			Camera.main.GetComponent<LivingEntityAM>().AddPuntos(2);
+		} else {
+			Camera.main.GetComponent<LivingEntityAM>().AddPuntos(-1);
+		}
+		Destroy (this.gameObject);
 	}
 }

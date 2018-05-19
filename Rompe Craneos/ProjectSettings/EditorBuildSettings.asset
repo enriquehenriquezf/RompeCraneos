@@ -8,3 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 921b02c0fb32c0844b4a9497dff0dbb9
+  - enabled: 1
+    path: Assets/Scenes/AgilidadMentalMenu.unity
+    guid: e262792539aea4b4e96a27cd9d53b6b1
+  - enabled: 1
+    path: Assets/Scenes/ResolverProblemasMenu.unity
+    guid: bda67bdf1c143494e8b24f9c4fec9945
+  - enabled: 1
+    path: Assets/Scenes/AgilidadMental.unity
+    guid: 15f246eafa112a843a60fc337fd954ed
+  - enabled: 1
+    path: Assets/Scenes/ResolverProblemas.unity
+    guid: 22e870c7f6208014099bcd406e507adb
