@@ -20,4 +20,8 @@ public class LivingEntityAM : MonoBehaviour {
 	{
 		puntos = puntos + p;
 	}
+
+	public int GetPuntos(){
+		return puntos;
+	}
 }

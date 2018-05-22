@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 981792332}
-        m_MethodName: ResolverProblemasMenu
+        m_MethodName: RPMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,7 +919,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 981792332}
-        m_MethodName: AgilidadMentalMenu
+        m_MethodName: AMMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

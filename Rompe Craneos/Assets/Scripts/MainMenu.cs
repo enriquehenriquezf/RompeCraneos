@@ -14,11 +14,12 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 
-	public void AgilidadMentalMenu()
+	public void AMMenu()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMentalMenu");
+		//AgilidadMentalMenu.AM_Menu.Load ();
 	}
-	public void ResolverProblemasMenu()
+	public void RPMenu()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("ResolverProblemasMenu");
 	}

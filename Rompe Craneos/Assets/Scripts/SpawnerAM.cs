@@ -10,6 +10,10 @@ public class SpawnerAM : MonoBehaviour {
 	GameObject go;
 	float time = 0f;
 	float delta = 0f;
+	public float spawn = 1f;
+	float finishtime = 0f;
+	float finishlvl = 60f;
+	public int vel = 4;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,9 +25,10 @@ public class SpawnerAM : MonoBehaviour {
 		if(delta > 1f)
 		{
 			time += 1;
+			finishtime += 1f;
 			delta = 0;
 		}
-		if (time == 1) {
+		if (time == spawn  && finishtime <= finishlvl) {
 			float x = Random.Range (-350,350);
 			int i = Random.Range (0,ecuaciones.GetLength(0));
 			string nombre = ecuaciones [i, 0];
@@ -36,8 +41,19 @@ public class SpawnerAM : MonoBehaviour {
 			go.GetComponentInChildren<Text> ().text = nombre;
 			go.GetComponent<AgilidadMental> ().SetName (nombre);
 			go.GetComponent<AgilidadMental> ().SetCorrecta (verdadero);
-			go.GetComponent<AgilidadMental> ().SetVelocidad (4);
+			go.GetComponent<AgilidadMental> ().SetVelocidad (vel);
 			time = 0f;
+		}
+		if (finishtime >= finishlvl) {
+			Time.timeScale = 0f;
+			//TODO:	Mostrar cuadro con puntaje y estrellas ganadas
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMentalMenu");
+			PlayerPrefs.SetInt ("Score", Camera.main.GetComponent<LivingEntityAM> ().GetPuntos ());
+			int puntos = PlayerPrefs.GetInt ("Score");
+			AgilidadMentalMenu.AM_Menu.puntos = puntos;
+			AgilidadMentalMenu.AM_Menu.nivel = 1;
+			AgilidadMentalMenu.AM_Menu.Save ();
+			Time.timeScale = 1f;
 		}
 	}
 }
