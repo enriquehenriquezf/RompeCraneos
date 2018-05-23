@@ -9,6 +9,8 @@ using System.IO;
 public class AgilidadMentalMenu : MonoBehaviour {
 	public int puntos;
 	public int puntosActual;
+	public Text Points;
+	public int nivelActual;
 	public int[] puntosLvl = new int[30];
 	public int[] EstrellasLvl = new int[30];
 	public int nivel;
@@ -26,6 +28,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		puntosActual = PlayerPrefs.GetInt ("ScoreActual");
 		estrellas = PlayerPrefs.GetInt ("Estrellas");
 		nivel = PlayerPrefs.GetInt ("Nivel");
+		nivelActual = PlayerPrefs.GetInt ("NivelActual");
 		if (PlayerPrefs.GetString ("Save").Equals ("True")) {
 			Save ();
 			PlayerPrefs.SetString ("Save","False");
@@ -34,6 +37,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 			Load ();
 			PlayerPrefs.SetString ("Load","False");
 		}
+		Points.text = "Puntos: " + puntos;
 	}
 	
 	// Update is called once per frame
@@ -43,35 +47,36 @@ public class AgilidadMentalMenu : MonoBehaviour {
 
 	public void Save(){
 		BinaryFormatter bf = new BinaryFormatter ();
-		int p = 0, n = 0;
+		int p = 0;
 		if (File.Exists (Application.persistentDataPath + Path.DirectorySeparatorChar + "playerInfo.dat")) {
 			FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-			PlayerData data = (PlayerData)bf.Deserialize (file);
+			List<PlayerData> DataCollection = (List<PlayerData>)bf.Deserialize (file);
+			//PlayerData data = (PlayerData)bf.Deserialize (file);
 			file.Close ();
-
-			p = data.Score;
-			n = data.nivel;
-			puntosLvl = data.ScoreLvl;
-			EstrellasLvl = data.Estrellas;
+			for (int i = 0; i < DataCollection.Count; i++) {
+				PlayerData data = DataCollection [i];
+				puntosLvl[i] = data.ScoreLvl;
+				EstrellasLvl[i] = data.Estrellas;
+			}
 		}
 		FileStream file2 = File.Open (Application.persistentDataPath + Path.DirectorySeparatorChar +"playerInfo.dat", FileMode.OpenOrCreate);
 
-		PlayerData data2 = new PlayerData ();
-		data2.Score = p + puntos;
-		data2.nivel = nivel;
-		puntosLvl [puntosActual] = puntos;
-		EstrellasLvl [puntosActual] = estrellas;
-		data2.ScoreLvl = puntosLvl;
-		data2.Estrellas = EstrellasLvl;
-		for (int i = 1; i <= nivel; i++) {
-			Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
-			btn.GetComponent<Button> ().interactable = true;
-			float w = EstrellasLvl [i] / 5;
-			btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect.Set (0f,0f,w,1f);
-			btn.transform.GetChild (1).localScale.Set (w/5,0.2f,1f);
+		puntosLvl [nivelActual] = puntos;
+		EstrellasLvl [nivelActual] = estrellas;
+		List<PlayerData> DataCollection2 = new List<PlayerData>();
+		for (int i = 0; i < puntosLvl.Length; i++) {
+			PlayerData data2 = new PlayerData ();
+			p = p + puntosLvl[i];
+			data2.Score = p;
+			data2.nivel = nivel;
+			data2.ScoreLvl = puntosLvl[i];
+			data2.Estrellas = EstrellasLvl[i];
+			DataCollection2.Add (data2);
 		}
+		puntos = p;
+		ActualizarNiveles ();
 
-		bf.Serialize (file2,data2);
+		bf.Serialize (file2,DataCollection2);
 		file2.Close ();
 	}
 
@@ -79,21 +84,28 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		if (File.Exists (Application.persistentDataPath + Path.DirectorySeparatorChar +"playerInfo.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-			PlayerData data = (PlayerData)bf.Deserialize (file);
+			List<PlayerData> DataCollection = (List<PlayerData>)bf.Deserialize (file);
+			//PlayerData data = (PlayerData)bf.Deserialize (file);
 			file.Close ();
-
-			puntos = data.Score;
-			nivel = data.nivel;
-			puntosLvl = data.ScoreLvl;
-			EstrellasLvl = data.Estrellas;
-
-			for (int i = 1; i <= nivel; i++) {
-				Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
-				btn.GetComponent<Button> ().interactable = true;
-				float w = EstrellasLvl [i] / 5;
-				btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect.Set (0f,0f,w,1f);
-				btn.transform.GetChild (1).localScale.Set (w/5,0.2f,1f);
+			for (int i = 0; i < DataCollection.Count; i++) {
+				PlayerData data = DataCollection [i];
+				puntos = data.Score;
+				nivel = data.nivel;
+				puntosLvl[i] = data.ScoreLvl;
+				EstrellasLvl[i] = data.Estrellas;				
 			}
+			ActualizarNiveles ();
+		}
+	}
+
+	void ActualizarNiveles()
+	{
+		for (int i = 0; i <= nivel; i++) {
+			Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
+			btn.GetComponent<Button> ().interactable = true;
+			float w = EstrellasLvl [i] / 5f;
+			btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect = new Rect(0f,0f,w,1f);
+			btn.transform.GetChild (1).localScale = new Vector3(w/5f,0.2f,1f);
 		}
 	}
 
@@ -104,6 +116,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",30f);
 		PlayerPrefs.SetFloat ("deadtime",9f);
 		PlayerPrefs.SetInt ("nivel",0);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental1()
@@ -113,6 +126,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",8f);
 		PlayerPrefs.SetInt ("nivel",1);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental2()
@@ -122,6 +136,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",7f);
 		PlayerPrefs.SetInt ("nivel",2);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental3()
@@ -131,6 +146,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",7f);
 		PlayerPrefs.SetInt ("nivel",3);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental4()
@@ -140,6 +156,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",6f);
 		PlayerPrefs.SetInt ("nivel",4);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental5()
@@ -149,6 +166,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",6f);
 		PlayerPrefs.SetInt ("nivel",5);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental6()
@@ -158,6 +176,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",8f);
 		PlayerPrefs.SetInt ("nivel",6);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 }
@@ -168,6 +187,6 @@ class PlayerData
 {
 	public int Score;
 	public int nivel;
-	public int[] ScoreLvl;
-	public int[] Estrellas;
+	public int ScoreLvl;
+	public int Estrellas;
 }
