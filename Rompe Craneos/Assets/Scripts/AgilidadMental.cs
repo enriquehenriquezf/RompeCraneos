@@ -12,7 +12,6 @@ public class AgilidadMental : MonoBehaviour {
 	float deadtime = 5f;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -42,17 +41,22 @@ public class AgilidadMental : MonoBehaviour {
 	public void SetVelocidad(int v){
 		vel = v;
 	}
+	public void SetDeadTime(float d){
+		deadtime = d;
+	}
 	public bool GetCorrecta(){
 		return correcta;
 	}
 
 	public void Verificar(){
-		verificando = true;
-		if (GetCorrecta ()) {
-			Camera.main.GetComponent<LivingEntityAM>().AddPuntos(2);
-		} else {
-			Camera.main.GetComponent<LivingEntityAM>().AddPuntos(-1);
+		if (Time.timeScale == 1f) {
+			verificando = true;
+			if (GetCorrecta ()) {
+				Camera.main.GetComponent<LivingEntityAM> ().AddPuntos (2);
+			} else {
+				Camera.main.GetComponent<LivingEntityAM> ().AddPuntos (-1);
+			}
+			Destroy (this.gameObject);
 		}
-		Destroy (this.gameObject);
 	}
 }

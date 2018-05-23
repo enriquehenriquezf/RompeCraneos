@@ -17,10 +17,13 @@ public class MainMenu : MonoBehaviour {
 	public void AMMenu()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMentalMenu");
-		//AgilidadMentalMenu.AM_Menu.Load ();
+		PlayerPrefs.SetString ("Save","False");
+		PlayerPrefs.SetString ("Load", "True");
 	}
 	public void RPMenu()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("ResolverProblemasMenu");
+		PlayerPrefs.SetString ("Save","False");
+		PlayerPrefs.SetString ("Load", "True");
 	}
 }
