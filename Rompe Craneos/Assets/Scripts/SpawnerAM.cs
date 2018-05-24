@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class SpawnerAM : MonoBehaviour {
 	private string[,] names = new string[,]{{"vibir","false"},{"vivir","true"}};
-	private string[,] ecuaciones = new string[,]{{"3+2=5","true"},{"7*8=57","false"},{"6*8=48","true"},{"6*9=53","false"}};
+	private string[,] ecuaciones = new string[,]{{"3+2=5","true"},{"7*8=57","false"},{"6*8=48","true"},{"6*9=53","false"},{"15-6=9","true"},{"7*6=43","false"},{"13*6=78","true"}
+		,{"24/3=7","false"},{"12/3=4","true"},{"123-20=113","false"},{"39+12=51","true"},{"12*3=46","false"},{"57/3=19","true"},{"58/2=19","false"},{"12+3+8=23","true"}
+		,{"13-8=6","false"},{"2^6=64","true"},{"3^3=21","false"},{"49/7=7","true"},{"10+3=14","false"},{"5+8=13","true"},{"19-7=13","false"},{"37-18=19","true"},{"6+8=16","false"}
+		,{"15*9=135","true"}};
 	public GameObject boton;
 	public GameObject PanelFinish;
 	public GameObject Stars;
