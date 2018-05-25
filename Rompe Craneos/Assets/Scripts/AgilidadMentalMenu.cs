@@ -115,9 +115,11 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMentalTuto()
 	{
 		PlayerPrefs.SetInt ("vel",2);
-		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("spawn",4f);
 		PlayerPrefs.SetFloat ("finishlvl",30f);
-		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetFloat ("deadtime",10f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",1);
 		PlayerPrefs.SetInt ("nivel",0);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
@@ -127,7 +129,9 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetInt ("vel",2);
 		PlayerPrefs.SetFloat ("spawn",3f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",1);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
@@ -135,9 +139,11 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental2()
 	{
 		PlayerPrefs.SetInt ("vel",2);
-		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("spawn",3f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",2);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
@@ -147,7 +153,9 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetInt ("vel",2);
 		PlayerPrefs.SetFloat ("spawn",2f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",3);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
@@ -157,30 +165,317 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		PlayerPrefs.SetInt ("vel",2);
 		PlayerPrefs.SetFloat ("spawn",2f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",4);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental5()
 	{
-		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetInt ("vel",2);
 		PlayerPrefs.SetFloat ("spawn",2f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetInt ("dificultad",0);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",5);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
 	}
 	public void AgilidadMental6()
 	{
-		PlayerPrefs.SetInt ("vel",3);
-		PlayerPrefs.SetFloat ("spawn",1f);
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",3f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",0);
 		PlayerPrefs.SetInt ("nivel",6);
 		PlayerPrefs.SetInt ("nivelMax",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental7()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",7);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental8()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",8);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental9()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",1);
+		PlayerPrefs.SetInt ("nivel",9);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental10()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",1);
+		PlayerPrefs.SetInt ("nivel",10);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental11()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetInt ("dificultad",1);
+		PlayerPrefs.SetInt ("palabras",1);
+		PlayerPrefs.SetInt ("nivel",11);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental12()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",12);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental13()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",13);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental14()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",14);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental15()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",15);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental16()
+	{
+		PlayerPrefs.SetInt ("vel",4);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",16);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental17()
+	{
+		PlayerPrefs.SetInt ("vel",4);
+		PlayerPrefs.SetFloat ("spawn",2f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetInt ("dificultad",2);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",17);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental18()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",18);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental19()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",19);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental20()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("nivel",20);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental21()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("palabras",1);
+		PlayerPrefs.SetInt ("nivel",21);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental22()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("palabras",1);
+		PlayerPrefs.SetInt ("nivel",22);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental23()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetInt ("dificultad",3);
+		PlayerPrefs.SetInt ("palabras",2);
+		PlayerPrefs.SetInt ("nivel",23);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental24()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",9f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",24);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental25()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",25);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental26()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",8f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",26);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental27()
+	{
+		PlayerPrefs.SetInt ("vel",2);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",0);
+		PlayerPrefs.SetInt ("nivel",27);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental28()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",7f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",2);
+		PlayerPrefs.SetInt ("nivel",28);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void AgilidadMental29()
+	{
+		PlayerPrefs.SetInt ("vel",3);
+		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("finishlvl",60f);
+		PlayerPrefs.SetFloat ("deadtime",6f);
+		PlayerPrefs.SetInt ("dificultad",4);
+		PlayerPrefs.SetInt ("palabras",2);
+		PlayerPrefs.SetInt ("nivel",29);
+		PlayerPrefs.SetInt ("nivelMax",nivel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("AgilidadMental");
+	}
+	public void Regresar()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Menu");
+		PlayerPrefs.SetString ("Save", "False");
+		PlayerPrefs.SetString ("Load", "False");
 	}
 }
 

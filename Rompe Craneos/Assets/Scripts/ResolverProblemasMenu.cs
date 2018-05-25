@@ -17,11 +17,11 @@ public class ResolverProblemasMenu : MonoBehaviour {
 	public int estrellas;
 	// Use this for initialization
 	void Start () {
-		puntos = PlayerPrefs.GetInt ("Score");
-		puntosActual = PlayerPrefs.GetInt ("ScoreActual");
-		estrellas = PlayerPrefs.GetInt ("Estrellas");
-		nivel = PlayerPrefs.GetInt ("Nivel");
-		nivelActual = PlayerPrefs.GetInt ("NivelActual");
+		puntos = PlayerPrefs.GetInt ("ScoreRP");
+		puntosActual = PlayerPrefs.GetInt ("ScoreActualRP");
+		estrellas = PlayerPrefs.GetInt ("EstrellasRP");
+		nivel = PlayerPrefs.GetInt ("NivelRP");
+		nivelActual = PlayerPrefs.GetInt ("NivelActualRP");
 		if (PlayerPrefs.GetString ("Save").Equals ("True")) {
 			Save ();
 			PlayerPrefs.SetString ("Save","False");
@@ -109,18 +109,28 @@ public class ResolverProblemasMenu : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt ("Palitos",12);
 		PlayerPrefs.SetString ("Palito","0,1,2,3,4,9,10,11,12,13,19,21");
-		PlayerPrefs.SetFloat ("finishlvl",30f);
-		PlayerPrefs.SetInt ("nivel",0);
-		PlayerPrefs.SetInt ("nivelMax",nivel);
+		PlayerPrefs.SetString ("Win","2,3,4,9,10,11,12,13,19,14,15,23;0,1,2,4,10,11,12,13,21,5,6,14");
+		PlayerPrefs.SetInt ("UltimoSpawn",25);
+		PlayerPrefs.SetFloat ("finishlvlRP",30f);
+		PlayerPrefs.SetInt ("nivelRP",0);
+		PlayerPrefs.SetInt ("nivelMaxRP",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("ResolverProblemas");
 	}
 	public void ResolverProblemas1()
 	{
 		PlayerPrefs.SetInt ("Palitos",12);
-		PlayerPrefs.SetString ("Palito","2,4,10,11,12,13,14,19,20,21,22,23");
-		PlayerPrefs.SetFloat ("finishlvl",60f);
-		PlayerPrefs.SetInt ("nivel",1);
-		PlayerPrefs.SetInt ("nivelMax",nivel);
+		PlayerPrefs.SetString ("Palito","0,1,2,3,4,9,10,11,12,13,19,21");
+		PlayerPrefs.SetString ("Win","2,3,4,9,10,11,12,13,19,14,15,23;0,1,2,4,10,11,12,13,21,5,6,14");
+		PlayerPrefs.SetInt ("UltimoSpawn",25);
+		PlayerPrefs.SetFloat ("finishlvlRP",60f);
+		PlayerPrefs.SetInt ("nivelRP",1);
+		PlayerPrefs.SetInt ("nivelMaxRP",nivel);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("ResolverProblemas");
+	}
+	public void Regresar()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Menu");
+		PlayerPrefs.SetString ("Save", "False");
+		PlayerPrefs.SetString ("Load", "False");
 	}
 }
