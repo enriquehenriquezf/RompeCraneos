@@ -71,7 +71,6 @@ public class SpawnerAM : MonoBehaviour {
 		}
 		if (finishtime >= finishlvl && Time.timeScale == 1f && !finished) {
 			Time.timeScale = 0f;
-			//TODO:	Arreglar cuadro con puntaje y estrellas ganadas
 			int p = Camera.main.GetComponent<LivingEntityAM> ().GetPuntos ();
 			float stars = (float)(((float)p / (float)cantCorrectas) / 2f) * 5f;
 			estrellas = Mathf.FloorToInt(stars);

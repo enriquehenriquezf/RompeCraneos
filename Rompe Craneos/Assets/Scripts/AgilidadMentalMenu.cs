@@ -60,9 +60,12 @@ public class AgilidadMentalMenu : MonoBehaviour {
 			}
 		}
 		FileStream file2 = File.Open (Application.persistentDataPath + Path.DirectorySeparatorChar +"playerInfo.dat", FileMode.OpenOrCreate);
-
-		puntosLvl [nivelActual] = puntos;
-		EstrellasLvl [nivelActual] = estrellas;
+		if (puntos > puntosLvl [nivelActual]) {
+			puntosLvl [nivelActual] = puntos;
+		}
+		if (estrellas > EstrellasLvl [nivelActual]) {
+			EstrellasLvl [nivelActual] = estrellas;
+		}
 		List<PlayerData> DataCollection2 = new List<PlayerData>();
 		for (int i = 0; i < puntosLvl.Length; i++) {
 			PlayerData data2 = new PlayerData ();
