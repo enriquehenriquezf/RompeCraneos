@@ -104,11 +104,13 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	void ActualizarNiveles()
 	{
 		for (int i = 0; i <= nivel; i++) {
-			Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
-			btn.GetComponent<Button> ().interactable = true;
-			float w = EstrellasLvl [i] / 5f;
-			btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect = new Rect(0f,0f,w,1f);
-			btn.transform.GetChild (1).localScale = new Vector3(w/5f,0.2f,1f);
+			if (i < 30) {
+				Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
+				btn.GetComponent<Button> ().interactable = true;
+				float w = EstrellasLvl [i] / 5f;
+				btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect = new Rect (0f, 0f, w, 1f);
+				btn.transform.GetChild (1).localScale = new Vector3 (w / 5f, 0.2f, 1f);
+			}
 		}
 	}
 
@@ -402,7 +404,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental24()
 	{
 		PlayerPrefs.SetInt ("vel",2);
-		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("spawn",3f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",9f);
 		PlayerPrefs.SetInt ("dificultad",4);
@@ -414,7 +416,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental25()
 	{
 		PlayerPrefs.SetInt ("vel",2);
-		PlayerPrefs.SetFloat ("spawn",4f);
+		PlayerPrefs.SetFloat ("spawn",3f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",8f);
 		PlayerPrefs.SetInt ("dificultad",4);
@@ -426,7 +428,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental26()
 	{
 		PlayerPrefs.SetInt ("vel",2);
-		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("spawn",2f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",8f);
 		PlayerPrefs.SetInt ("dificultad",4);
@@ -450,7 +452,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental28()
 	{
 		PlayerPrefs.SetInt ("vel",3);
-		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("spawn",2f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",7f);
 		PlayerPrefs.SetInt ("dificultad",4);
@@ -462,7 +464,7 @@ public class AgilidadMentalMenu : MonoBehaviour {
 	public void AgilidadMental29()
 	{
 		PlayerPrefs.SetInt ("vel",3);
-		PlayerPrefs.SetFloat ("spawn",3f);
+		PlayerPrefs.SetFloat ("spawn",1f);
 		PlayerPrefs.SetFloat ("finishlvl",60f);
 		PlayerPrefs.SetFloat ("deadtime",6f);
 		PlayerPrefs.SetInt ("dificultad",4);
@@ -476,6 +478,16 @@ public class AgilidadMentalMenu : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("Menu");
 		PlayerPrefs.SetString ("Save", "False");
 		PlayerPrefs.SetString ("Load", "False");
+	}
+	public void Unlock()
+	{
+		for (int i = 0; i <= 29; i++) {
+			Transform btn = GameObject.Find ("Canvas").transform.GetChild (0).Find ("ButtonLvl (" + i + ")");
+			btn.GetComponent<Button> ().interactable = true;
+			float w = EstrellasLvl [i] / 5f;
+			btn.transform.GetChild (1).GetComponent<RawImage> ().uvRect = new Rect(0f,0f,w,1f);
+			btn.transform.GetChild (1).localScale = new Vector3(w/5f,0.2f,1f);
+		}
 	}
 }
 

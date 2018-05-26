@@ -99,6 +99,7 @@ public class SpawnerRP : MonoBehaviour {
 			float stars = (float)(((float)p / (float)finishtime/ 2f) ) * 5f;
 			estrellas = Mathf.FloorToInt(stars);
 			if (p < 0) {estrellas = 0;}
+			if (estrellas > 5) {estrellas = 5;}
 			PlayerPrefs.SetInt ("ScoreRP", p);
 			PlayerPrefs.SetInt ("ScoreActualRP", p);
 			PlayerPrefs.SetInt ("NivelActualRP", nivelActual);
@@ -154,6 +155,7 @@ public class SpawnerRP : MonoBehaviour {
 			if (p < 0) {
 				estrellas = 0;
 			}
+			if (estrellas > 5) {estrellas = 5;}
 			PlayerPrefs.SetInt ("ScoreRP", p);
 			PlayerPrefs.SetInt ("ScoreActualRP", p);
 			PlayerPrefs.SetInt ("NivelActualRP", nivelActual);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AgilidadMental : MonoBehaviour {
 	private string nombre = "";
@@ -53,8 +54,10 @@ public class AgilidadMental : MonoBehaviour {
 			verificando = true;
 			if (GetCorrecta ()) {
 				Camera.main.GetComponent<LivingEntityAM> ().AddPuntos (2);
+				//this.GetComponent<Image> ().color = Color.green;
 			} else {
 				Camera.main.GetComponent<LivingEntityAM> ().AddPuntos (-1);
+				//this.GetComponent<Image> ().color = Color.red;
 			}
 			Destroy (this.gameObject);
 		}
